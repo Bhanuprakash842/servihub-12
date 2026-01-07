@@ -11,6 +11,36 @@ import CustomerDashboard from "./pages/CustomerDashboard";
 import ProviderDashboard from "./pages/ProviderDashboard";
 import AdminDashboard from "./pages/AdminDashboard";
 import NotFound from "./pages/NotFound";
+import HowItWorksPage from "./pages/HowItWorksPage";
+import ServiceProviderPage from "./pages/ServiceProviderPage";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
 const queryClient = new QueryClient();
-const App = () => <HelmetProvider><QueryClientProvider client={queryClient}><TooltipProvider><Toaster /><Sonner /><BrowserRouter><Routes><Route path="/" element={<Index />} /><Route path="/services" element={<ServicesPage />} /><Route path="/booking/:serviceId" element={<BookingPage />} /><Route path="/customer" element={<CustomerDashboard />} /><Route path="/provider" element={<ProviderDashboard />} /><Route path="/admin" element={<AdminDashboard />} /><Route path="*" element={<NotFound />} /></Routes></BrowserRouter></TooltipProvider></QueryClientProvider></HelmetProvider>;
+
+const App = () => (
+    <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+            <TooltipProvider>
+                <Toaster />
+                <Sonner />
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Index />} />
+                        <Route path="/services" element={<ServicesPage />} />
+                        <Route path="/booking/:serviceId" element={<BookingPage />} />
+                        <Route path="/customer" element={<CustomerDashboard />} />
+                        <Route path="/provider" element={<ProviderDashboard />} />
+                        <Route path="/admin" element={<AdminDashboard />} />
+                        <Route path="/how-it-works" element={<HowItWorksPage />} />
+                        <Route path="/become-provider" element={<ServiceProviderPage />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/signup" element={<Signup />} />
+                        <Route path="*" element={<NotFound />} />
+                    </Routes>
+                </BrowserRouter>
+            </TooltipProvider>
+        </QueryClientProvider>
+    </HelmetProvider>
+);
 export default App;
